@@ -1,4 +1,4 @@
-import { processing } from '../../../data/processing';
+import { processing } from '$lib/data/processing';
 
 /** @type {import('./processing.csv.js').RequestHandler} */
 export async function get(request) {

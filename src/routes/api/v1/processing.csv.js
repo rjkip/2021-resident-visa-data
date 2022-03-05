@@ -1,4 +1,4 @@
-import { processing } from '../../../data/processing';
+import { processing } from '$lib/data/processing';
 
 const headers = `
 Date

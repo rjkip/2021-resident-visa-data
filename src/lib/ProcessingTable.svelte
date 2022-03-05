@@ -1,7 +1,7 @@
 <script>
-  import { processing } from '../data/processing';
+  import { processing } from '$lib/data/processing';
 
-  function sumProps(array, prop) {
+  function sumProps(prop, array) {
     return array.reduce((acc, obj) => acc + obj[prop], 0);
   }
 </script>
@@ -27,11 +27,11 @@
     {/each}
     <tr>
       <th>Total</th>
-      <td>{sumProps(processing, 'receivedApplications')}</td>
-      <td>{sumProps(processing, 'receivedPeople')}</td>
-      <td>{sumProps(processing, 'approvedApplications')}</td>
-      <td>{sumProps(processing, 'approvedPeople')}</td>
-      <td>{sumProps(processing, 'declinedApplications')}</td>
+      <td>{sumProps('receivedApplications', processing)}</td>
+      <td>{sumProps('receivedPeople', processing)}</td>
+      <td>{sumProps('approvedApplications', processing)}</td>
+      <td>{sumProps('approvedPeople', processing)}</td>
+      <td>{sumProps('declinedApplications', processing)}</td>
     </tr>
   </tbody>
 </table>
