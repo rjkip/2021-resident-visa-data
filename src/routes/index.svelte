@@ -1,2 +1,16 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+  import ProcessingTable from '$lib/ProcessingTable.svelte';
+</script>
+
+<h1>2021 Resident Visa data</h1>
+
+<h2>Downloads</h2>
+
+<ul>
+  <li><a href="/api/v1/processing.csv">🧮 CSV</a></li>
+  <li><a href="/api/v1/processing.json">👨 JSON</a></li>
+</ul>
+
+<h2>Table</h2>
+
+<ProcessingTable />
