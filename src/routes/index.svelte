@@ -18,7 +18,7 @@
 
 <hr />
 
-<h1>2021 New Zealand Resident Visa data</h1>
+<h1>🇳🇿 2021 New Zealand Resident Visa data</h1>
 
 <p>
   Regular updates on 2021 Resident Visa processing times. These are processed manually from the
