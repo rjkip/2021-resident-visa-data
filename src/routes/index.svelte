@@ -76,10 +76,12 @@
 
 <footer>
   <p>
-    Created by 💼&nbsp;<a href="https://www.linkedin.com/in/rjkip/" class="svelte-12dryyq"
-      >in/rjkip</a
+    Open source 🐙&nbsp;<a href="https://github.com/rjkip/2021-resident-visa-data"
+      >rjkip/2021-resident-visa-data</a
     >
-    • 🐦&nbsp;<a href="https://twitter.com/rjkip" class="svelte-12dryyq">@rjkip</a>
+  </p>
+  <p>
+    Created by 💼&nbsp;<a href="https://www.linkedin.com/in/rjkip/">in/rjkip</a>
   </p>
 </footer>
 
