@@ -29,7 +29,7 @@
 
 <Chart
   type="line"
-  title="Processed percentage (total of applications approved or declined)"
+  title="Processed percentage (percent of total of applications approved or declined)"
   data={chartData}
   axisOptions={{ xIsSeries: true, xAxisMode: 'tick' }}
   lineOptions={{ hideDots: true, regionFill: true }}
