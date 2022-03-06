@@ -10,7 +10,6 @@
 
 <nav>
   <ul>
-    <li>📡 <a href="#downloads">Downloads</a></li>
     <li>📈 <a href="#charts">Charts</a></li>
     <li>🧮 <a href="#table">Table</a></li>
   </ul>
@@ -43,18 +42,15 @@
 </p>
 <hr />
 
-<h2 id="downloads">📡 Downloads</h2>
-<ul>
-  <li>🧮 <a href="/api/v1/processing.csv">CSV</a></li>
-  <li>👨 <a href="/api/v1/processing.json">JSON</a></li>
-</ul>
-<hr />
-
 <h2 id="charts">📈 Charts</h2>
 <Charts />
 <hr />
 
 <h2 id="table">🧮 Table</h2>
+<ul>
+  <li>📊 <a href="/api/v1/processing.csv">CSV</a></li>
+  <li>👨 <a href="/api/v1/processing.json">JSON</a></li>
+</ul>
 <ProcessingTable />
 <hr />
 
