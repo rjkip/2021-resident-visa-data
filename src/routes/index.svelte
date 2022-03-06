@@ -12,6 +12,7 @@
   <ul>
     <li>📈 <a href="#charts">Charts</a></li>
     <li>🧮 <a href="#table">Table</a></li>
+    <li>🧑‍💻 <a href="#apis">APIs</a></li>
   </ul>
 </nav>
 
@@ -52,6 +53,14 @@
   <li>👨 <a href="/api/v1/processing.json">JSON</a></li>
 </ul>
 <ProcessingTable />
+<hr />
+
+<h2 id="apis">APIs</h2>
+<p>Processing data per day in:</p>
+<ul>
+  <li>📊 <a href="/api/v1/processing.csv">CSV</a></li>
+  <li>👨 <a href="/api/v1/processing.json">JSON</a></li>
+</ul>
 <hr />
 
 <p>
