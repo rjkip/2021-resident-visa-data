@@ -89,6 +89,10 @@
     margin: 0 0.5em;
   }
 
+  p {
+    max-width: 45em;
+  }
+
   footer {
     text-align: center;
   }

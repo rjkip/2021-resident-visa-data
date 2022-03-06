@@ -3,10 +3,6 @@ body {
     Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-p {
-  max-width: 45em;
-}
-
 hr {
   border: 0;
   border-top: 1px solid #d9d9d9;
