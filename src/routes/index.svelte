@@ -4,6 +4,10 @@
   import LatestUpdate from '$lib/LatestUpdate.svelte';
 </script>
 
+<svelte:head>
+  <title>2021 New Zealand Resident Visa data</title>
+</svelte:head>
+
 <nav>
   <ul>
     <li>📡 <a href="#downloads">Downloads</a></li>
@@ -14,7 +18,7 @@
 
 <hr />
 
-<h1>2021 Resident Visa data</h1>
+<h1>2021 New Zealand Resident Visa data</h1>
 
 <p>
   Regular updates on 2021 Resident Visa processing times. These are processed manually from the
