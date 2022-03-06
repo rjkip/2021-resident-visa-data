@@ -63,14 +63,35 @@
     2021 Resident Visa processing updates (PDF)
   </a>
 </p>
+<hr />
+
+<footer>
+  <p>
+    Created by 💼&nbsp;<a href="https://www.linkedin.com/in/rjkip/" class="svelte-12dryyq"
+      >in/rjkip</a
+    >
+    • 🐦&nbsp;<a href="https://twitter.com/rjkip" class="svelte-12dryyq">@rjkip</a>
+  </p>
+</footer>
 
 <style>
   nav ul {
     padding: 0;
     list-style: none;
   }
+
   nav li {
     display: inline-block;
     margin: 0 0.5em;
+  }
+
+  footer {
+    text-align: center;
+  }
+  footer p {
+    max-width: 100%;
+  }
+  footer a {
+    font-weight: bold;
   }
 </style>
