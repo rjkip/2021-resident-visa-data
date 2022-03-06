@@ -2,20 +2,20 @@
   import { processing } from '$lib/data/processing';
   import Chart from 'svelte-frappe-charts';
 
-  export let title, data;
-
   const chartData = {
     labels: processing.map((row) => row.date),
-    datasets: Object.entries(data).map(([name, prop]) => ({
-      name,
-      values: processing.map((row) => row[prop]),
-    })),
+    datasets: [
+      {
+        name: 'Processing rate',
+        values: processing.map((row) => row.approvedApplications + row.declinedApplications),
+      },
+    ],
   };
 </script>
 
 <Chart
   type="line"
-  {title}
+  title="Processing rate (applications approved or rejected per day)"
   data={chartData}
   axisOptions={{ xIsSeries: true, xAxisMode: 'tick' }}
   lineOptions={{ hideDots: true, regionFill: true }}

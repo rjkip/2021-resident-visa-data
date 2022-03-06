@@ -1,6 +1,8 @@
 <script>
   import { processing } from '$lib/data/processing';
 
+  const numFormatter = new Intl.NumberFormat();
+  const numFormat = (n) => numFormatter.format(n);
   function sumProps(prop, array) {
     return array.reduce((acc, obj) => acc + obj[prop], 0);
   }
@@ -21,17 +23,36 @@
     {#each processing as row}
       <tr>
         {#each Object.values(row) as value}
-          <td>{value}</td>
+          <td>{value === 0 ? '-' : typeof value === 'number' ? numFormat(value) : value}</td>
         {/each}
       </tr>
     {/each}
-    <tr>
+    <tr class="total">
       <th>Total</th>
-      <td>{sumProps('receivedApplications', processing)}</td>
-      <td>{sumProps('receivedPeople', processing)}</td>
-      <td>{sumProps('approvedApplications', processing)}</td>
-      <td>{sumProps('approvedPeople', processing)}</td>
-      <td>{sumProps('declinedApplications', processing)}</td>
+      <td>{numFormat(sumProps('receivedApplications', processing))}</td>
+      <td>{numFormat(sumProps('receivedPeople', processing))}</td>
+      <td>{numFormat(sumProps('approvedApplications', processing))}</td>
+      <td>{numFormat(sumProps('approvedPeople', processing))}</td>
+      <td>{numFormat(sumProps('declinedApplications', processing))}</td>
     </tr>
   </tbody>
 </table>
+
+<style>
+  th {
+    padding: 0.5em;
+  }
+
+  th,
+  td {
+    text-align: center;
+  }
+
+  .total {
+    font-weight: bold;
+  }
+
+  tr:nth-child(odd) {
+    background: #efefef;
+  }
+</style>

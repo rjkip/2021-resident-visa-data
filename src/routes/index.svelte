@@ -1,51 +1,81 @@
 <script>
   import ProcessingTable from '$lib/ProcessingTable.svelte';
-  import CumulativeLine from '$lib/charts/CumulativeLine.svelte';
-  import Line from '../lib/charts/Line.svelte';
+  import Charts from '$lib/Charts.svelte';
 </script>
+
+<nav>
+  <ul>
+    <li>📡 <a href="#downloads">Downloads</a></li>
+    <li>📈 <a href="#charts">Charts</a></li>
+    <li>🧮 <a href="#table">Table</a></li>
+  </ul>
+</nav>
+
+<hr />
 
 <h1>2021 Resident Visa data</h1>
 
-<h2>Graphs</h2>
+<p>
+  Regular updates on 2021 Resident Visa processing times. These are processed manually from the
+  Immigration New Zealand website.
+</p>
 
-<CumulativeLine
-  title="Cumulative applications"
-  data={{
-    Applications: 'receivedApplications',
-    Approved: 'approvedApplications',
-    Declined: 'declinedApplications',
-  }}
-/>
-<CumulativeLine
-  title="Cumulative people"
-  data={{
-    People: 'receivedPeople',
-    Approved: 'approvedPeople',
-  }}
-/>
-<Line
-  title="Applications"
-  data={{
-    Applications: 'receivedApplications',
-    Approved: 'approvedApplications',
-    Declined: 'declinedApplications',
-  }}
-/>
-<Line
-  title="People"
-  data={{
-    People: 'receivedPeople',
-    Approved: 'approvedPeople',
-  }}
-/>
+<p class="notice">
+  This website makes no warranty, express or implied, nor assumes any legal liability or
+  responsibility for the accuracy, correctness, completeness or use of any information that is
+  available on or through this web site.
+</p>
 
-<h2>Downloads</h2>
+<p>
+  <strong>Data source:</strong>
+  📄
+  <a
+    href="https://www.immigration.govt.nz/documents/other-resources/2021-resident-visa-processing.pdf"
+  >
+    2021 Resident Visa processing updates (PDF)
+  </a>
+</p>
+
+<hr />
+
+<h2 id="downloads">📡 Downloads</h2>
 
 <ul>
-  <li><a href="/api/v1/processing.csv">🧮 CSV</a></li>
-  <li><a href="/api/v1/processing.json">👨 JSON</a></li>
+  <li>🧮 <a href="/api/v1/processing.csv">CSV</a></li>
+  <li>👨 <a href="/api/v1/processing.json">JSON</a></li>
 </ul>
 
-<h2>Table</h2>
+<hr />
+
+<h2 id="charts">📈 Charts</h2>
+
+<Charts />
+
+<hr />
+
+<h2 id="table">🧮 Table</h2>
 
 <ProcessingTable />
+
+<hr />
+
+<p>
+  <strong>Data source:</strong>
+  📄
+  <a
+    href="https://www.immigration.govt.nz/documents/other-resources/2021-resident-visa-processing.pdf"
+  >
+    2021 Resident Visa processing updates (PDF)
+  </a>
+</p>
+
+<style>
+  nav ul {
+    padding: 0;
+    list-style: none;
+  }
+  nav li {
+    display: inline-block;
+    margin: 0 0.5em;
+  }
+</style>

@@ -17,4 +17,10 @@
   }
 </script>
 
-<Chart type="line" {title} data={chartData} />
+<Chart
+  type="line"
+  {title}
+  data={chartData}
+  axisOptions={{ xIsSeries: true, xAxisMode: 'tick' }}
+  lineOptions={{ hideDots: true, regionFill: true }}
+/>
