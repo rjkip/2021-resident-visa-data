@@ -27,7 +27,7 @@
 <p class="notice">
   This website makes no warranty, express or implied, nor assumes any legal liability or
   responsibility for the accuracy, correctness, completeness or use of any information that is
-  available on or through this web site.
+  available on or through this website.
 </p>
 <p>
   The latest update is from <strong><LatestUpdate /></strong>.
