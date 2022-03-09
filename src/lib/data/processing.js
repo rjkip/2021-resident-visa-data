@@ -89,6 +89,13 @@ Thu, Feb 24 1,059 2,256 918 2,455 .
 Fri, Feb 25 1,139 2,429 314 772 .
 Sat, Feb 26 943 1,868 . . .
 Sun, Feb 27 1,112 2,240 . . .
+Sun, Mar 6 1,666 3,225 . . .
+Sat, Mar 5 2,291 4,323 . . .
+Fri, Mar 4 4,222 8,005 206 480 .
+Thu, Mar 3 5,466 9,929 236 594 .
+Wed, Mar 2 8,406 14,769 61 179 1
+Tue, Mar 1 18,362 29,297 56 217 1
+Mon, Feb 28 1,256 2,601 166 421 1
 `;
 
 function localIsoDate(month, day) {
@@ -123,4 +130,5 @@ export const processing = data
       approvedPeople: parseInt(approvedPeople, 10),
       declinedApplications: parseInt(declinedApplications, 10),
     }),
-  );
+  )
+  .sort((a, b) => (a.date > b.date ? 1 : -1));
