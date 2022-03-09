@@ -20,7 +20,7 @@
     </tr>
   </thead>
   <tbody>
-    {#each processing as row}
+    {#each [...processing].reverse() as row}
       <tr>
         {#each Object.values(row) as value}
           <td>{value === 0 ? '-' : typeof value === 'number' ? numFormat(value) : value}</td>
