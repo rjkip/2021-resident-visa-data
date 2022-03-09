@@ -21,7 +21,7 @@
             ],
             [],
           )
-          .map(({ total, processed }) => (processed / total) * 100),
+          .map(({ total, processed }) => ((processed / total) * 100).toFixed(1)),
       },
     ],
   };
