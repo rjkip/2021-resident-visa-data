@@ -64,7 +64,7 @@
       grid-template:
         'processing-rate processed-percentage' auto
         'cumulative-applications applications' auto
-        'cumulative-people people' auto / 1fr 1fr;
+        'cumulative-people people' auto / 50% 50%;
     }
   }
 </style>
