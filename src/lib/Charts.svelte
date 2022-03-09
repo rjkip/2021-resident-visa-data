@@ -37,7 +37,7 @@
     </div>
     <div style="grid-area: applications">
       <Line
-        title="Applications"
+        title="New applications"
         data={{
           Applications: 'receivedApplications',
           Approved: 'approvedApplications',
@@ -47,7 +47,7 @@
     </div>
     <div style="grid-area: people">
       <Line
-        title="People included in applications"
+        title="People included in new applications"
         data={{
           People: 'receivedPeople',
           Approved: 'approvedPeople',
