@@ -2,6 +2,7 @@
   import ProcessingTable from '$lib/ProcessingTable.svelte';
   import Charts from '$lib/Charts.svelte';
   import LatestUpdate from '$lib/LatestUpdate.svelte';
+  import RemainingProcessedBy from '$lib/charts/RemainingProcessedBy.svelte';
 </script>
 
 <svelte:head>
@@ -25,7 +26,7 @@
   Immigration New Zealand website.
 </p>
 <p class="notice">
-  This website makes no warranty, express or implied, nor assumes any legal liability or
+  💁 This website makes no warranty, express or implied, nor assumes any legal liability or
   responsibility for the accuracy, correctness, completeness or use of any information that is
   available on or through this website.
 </p>
@@ -44,6 +45,7 @@
 <hr />
 
 <h2 id="charts">📈 Charts</h2>
+<RemainingProcessedBy />
 <Charts />
 <hr />
 
