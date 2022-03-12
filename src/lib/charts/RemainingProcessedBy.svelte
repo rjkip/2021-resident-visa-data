@@ -29,7 +29,7 @@
 </script>
 
 <p class="notice">
-  ✅ Going by the last 14 days, all remaining
+  ✅ Going by the last 14 days, most of the remaining
   <strong>{formatNumber(remainingApplications)}</strong> applications will be processed by
   <strong>{formatDate(date)}</strong>.
 </p>
