@@ -1,5 +1,6 @@
 <script>
   import { processing } from '$lib/data/processing';
+  import ProcessingDataset from './ProcessingDataset.svelte';
 
   const numFormatter = new Intl.NumberFormat();
   const numFormat = (n) => numFormatter.format(n);
@@ -7,6 +8,8 @@
     return array.reduce((acc, obj) => acc + obj[prop], 0);
   }
 </script>
+
+<ProcessingDataset />
 
 <table>
   <thead>
