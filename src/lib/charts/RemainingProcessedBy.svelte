@@ -25,7 +25,10 @@
 
   const formatNumber = (n) => new Intl.NumberFormat(['en-NZ', 'en-UK', 'en']).format(n);
   const formatDate = (date) =>
-    new Intl.DateTimeFormat(['en-NZ', 'en-UK', 'en'], { dateStyle: 'long' }).format(date);
+    new Intl.DateTimeFormat(['en-NZ', 'en-UK', 'en'], {
+      dateStyle: 'long',
+      timeZone: 'Pacific/Auckland',
+    }).format(date);
 </script>
 
 <p class="notice">
