@@ -2,7 +2,6 @@
   import ProcessingTable from '$lib/ProcessingTable.svelte';
   import Charts from '$lib/Charts.svelte';
   import LatestUpdate from '$lib/LatestUpdate.svelte';
-  import RemainingProcessedBy from '$lib/charts/RemainingProcessedBy.svelte';
 </script>
 
 <svelte:head>
@@ -44,9 +43,9 @@
 </p>
 <hr />
 
-<h2 id="charts">📈 Charts</h2>
-<RemainingProcessedBy />
-<Charts />
+<Charts>
+  <h2 slot="header" id="charts">📈 Charts</h2>
+</Charts>
 <hr />
 
 <h2 id="table">🧮 Table</h2>
