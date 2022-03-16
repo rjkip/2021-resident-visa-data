@@ -148,13 +148,14 @@ export const processing = data
       currentValue.approvedApplications + currentValue.declinedApplications;
     const processedApplicationsCumulative =
       (previousValue.processedApplicationsCumulative || 0) + processedApplications;
-    const processedApplicationsMovAvg14 =
+    const processedApplicationsMovAvg14 = (
       (processedApplications +
         acc
           .slice(-13)
           .map((it) => it.processedApplications)
           .reduce((a, b) => a + b, 0)) /
-      14;
+      14
+    ).toFixed(0);
     const remainingApplications = receivedApplicationsCumulative - processedApplicationsCumulative;
     const processedInDays =
       processedApplicationsMovAvg14 > 0
