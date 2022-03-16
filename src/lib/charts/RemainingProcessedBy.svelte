@@ -1,38 +1,11 @@
 <script>
   import { processing } from '$lib/data/processing';
-
-  const applications = processing
-    .map((row) => row.receivedApplications)
-    .reduce((acc, n) => acc + n, 0);
-  const approvedApplications = processing
-    .map((row) => row.approvedApplications)
-    .reduce((acc, n) => acc + n, 0);
-  const declinedApplications = processing
-    .map((row) => row.declinedApplications)
-    .reduce((acc, n) => acc + n, 0);
-  const processedApplications = approvedApplications + declinedApplications;
-  const remainingApplications = applications - processedApplications;
-  const processedPerDayLast14Days = (
-    Array(14)
-      .fill(0)
-      .map((_, offset) => processing[processing.length - 1 - offset])
-      .map((row) => row.approvedApplications + row.declinedApplications)
-      .reduce((acc, n) => acc + n, 0) / 14
-  ).toFixed();
-  const remainingDays = remainingApplications / processedPerDayLast14Days;
-  const date = new Date();
-  date.setDate(date.getDate() + remainingDays);
-
-  const formatNumber = (n) => new Intl.NumberFormat(['en-NZ', 'en-UK', 'en']).format(n);
-  const formatDate = (date) =>
-    new Intl.DateTimeFormat(['en-NZ', 'en-UK', 'en'], {
-      dateStyle: 'long',
-      timeZone: 'Pacific/Auckland',
-    }).format(date);
+  import { formatLongDate, formatNum } from '../formatting';
 </script>
 
 <p class="notice">
   ✅ Going by the last 14 days, most of the remaining
-  <strong>{formatNumber(remainingApplications)}</strong> applications will be processed by
-  <strong>{formatDate(date)}</strong>.
+  <strong>{formatNum(processing[processing.length - 1].remainingApplications)}</strong>
+  applications will be processed by
+  <strong>{formatLongDate(processing[processing.length - 1].processedBy)}</strong>.
 </p>

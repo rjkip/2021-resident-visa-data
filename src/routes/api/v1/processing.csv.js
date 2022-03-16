@@ -15,7 +15,27 @@ Source: https://www.immigration.govt.nz/documents/other-resources/2021-resident-
 /** @type {import('./processing.csv.js').RequestHandler} */
 export async function get(request) {
   return {
-    body: [headers.join(','), ...processing.map((it) => Object.values(it).join(','))].join('\n'),
+    body: [
+      headers.join(','),
+      ...processing.map(
+        ({
+          date,
+          receivedApplications,
+          receivedPeople,
+          approvedApplications,
+          approvedPeople,
+          declinedApplications,
+        }) =>
+          Object.values({
+            date,
+            receivedApplications,
+            receivedPeople,
+            approvedApplications,
+            approvedPeople,
+            declinedApplications,
+          }).join(','),
+      ),
+    ].join('\n'),
     headers: {
       'content-type': 'text/csv',
     },

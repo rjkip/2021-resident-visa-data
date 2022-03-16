@@ -51,8 +51,8 @@
 
 <h2 id="table">🧮 Table</h2>
 <ul>
-  <li>📊 <a href="/api/v1/processing.csv">CSV</a></li>
-  <li>👨 <a href="/api/v1/processing.json">JSON</a></li>
+  <li>📊 <a href="/api/v2/processing.csv">CSV</a> (<a href="/api/v1/processing.csv">v1</a>)</li>
+  <li>👨 <a href="/api/v2/processing.json">JSON</a> (<a href="/api/v1/processing.json">v1</a>)</li>
 </ul>
 <ProcessingTable />
 <hr />
@@ -60,8 +60,8 @@
 <h2 id="apis">APIs</h2>
 <p>Processing data per day in:</p>
 <ul>
-  <li>📊 <a href="/api/v1/processing.csv">CSV</a></li>
-  <li>👨 <a href="/api/v1/processing.json">JSON</a></li>
+  <li>📊 <a href="/api/v2/processing.csv">CSV</a> (<a href="/api/v1/processing.csv">v1</a>)</li>
+  <li>👨 <a href="/api/v2/processing.json">JSON</a> (<a href="/api/v1/processing.json">v1</a>)</li>
 </ul>
 <hr />
 

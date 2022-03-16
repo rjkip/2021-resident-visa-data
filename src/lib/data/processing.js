@@ -131,4 +131,52 @@ export const processing = data
       declinedApplications: parseInt(declinedApplications, 10),
     }),
   )
-  .sort((a, b) => (a.date > b.date ? 1 : -1));
+  .sort((a, b) => (a.date > b.date ? 1 : -1))
+  .reduce((acc, currentValue, currentIndex, array) => {
+    const previousValue = acc[acc.length - 1] || {};
+    const receivedApplicationsCumulative =
+      (previousValue.receivedApplicationsCumulative || 0) + currentValue.receivedApplications;
+    const receivedPeopleCumulative =
+      (previousValue.receivedPeopleCumulative || 0) + currentValue.receivedPeople;
+    const approvedApplicationsCumulative =
+      (previousValue.approvedApplicationsCumulative || 0) + currentValue.approvedApplications;
+    const approvedPeopleCumulative =
+      (previousValue.approvedPeopleCumulative || 0) + currentValue.approvedPeople;
+    const declinedApplicationsCumulative =
+      (previousValue.declinedApplicationsCumulative || 0) + currentValue.declinedApplications;
+    const processedApplications =
+      currentValue.approvedApplications + currentValue.declinedApplications;
+    const processedApplicationsCumulative =
+      (previousValue.processedApplicationsCumulative || 0) + processedApplications;
+    const processedApplicationsMovAvg14 =
+      (processedApplications +
+        acc
+          .slice(-13)
+          .map((it) => it.processedApplications)
+          .reduce((a, b) => a + b, 0)) /
+      14;
+    const remainingApplications = receivedApplicationsCumulative - processedApplicationsCumulative;
+    const processedInDays =
+      processedApplicationsMovAvg14 > 0
+        ? Math.round(remainingApplications / processedApplicationsMovAvg14)
+        : null;
+    const processedBy = processedInDays === null ? null : new Date(currentValue.date);
+    if (processedBy) {
+      processedBy.setDate(processedBy.getDate() + processedInDays);
+    }
+    const newValue = {
+      ...currentValue,
+      receivedApplicationsCumulative,
+      receivedPeopleCumulative,
+      approvedApplicationsCumulative,
+      approvedPeopleCumulative,
+      declinedApplicationsCumulative,
+      processedApplications,
+      processedApplicationsCumulative,
+      processedApplicationsMovAvg14,
+      remainingApplications,
+      processedInDays,
+      processedBy,
+    };
+    return [...acc, newValue];
+  }, []);

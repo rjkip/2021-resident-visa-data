@@ -6,7 +6,23 @@ export async function get(request) {
     body: {
       source:
         'https://www.immigration.govt.nz/documents/other-resources/2021-resident-visa-processing.pdf',
-      data: processing,
+      data: processing.map(
+        ({
+          date,
+          receivedApplications,
+          receivedPeople,
+          approvedApplications,
+          approvedPeople,
+          declinedApplications,
+        }) => ({
+          date,
+          receivedApplications,
+          receivedPeople,
+          approvedApplications,
+          approvedPeople,
+          declinedApplications,
+        }),
+      ),
     },
     headers: {
       'content-type': 'application/json',

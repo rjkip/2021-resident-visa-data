@@ -1,9 +1,8 @@
 <script>
   import { processing } from '$lib/data/processing';
   import ProcessingDataset from './ProcessingDataset.svelte';
+  import { formatNum } from './formatting';
 
-  const numFormatter = new Intl.NumberFormat();
-  const numFormat = (n) => numFormatter.format(n);
   function sumProps(prop, array) {
     return array.reduce((acc, obj) => acc + obj[prop], 0);
   }
@@ -25,18 +24,21 @@
   <tbody>
     {#each [...processing].reverse() as row}
       <tr>
-        {#each Object.values(row) as value}
-          <td>{value === 0 ? '-' : typeof value === 'number' ? numFormat(value) : value}</td>
-        {/each}
+        <td>{row.date}</td>
+        <td>{formatNum(row.receivedApplications)}</td>
+        <td>{formatNum(row.receivedPeople)}</td>
+        <td>{formatNum(row.approvedApplications)}</td>
+        <td>{formatNum(row.approvedPeople)}</td>
+        <td>{formatNum(row.declinedApplications)}</td>
       </tr>
     {/each}
     <tr class="total">
       <th>Total</th>
-      <td>{numFormat(sumProps('receivedApplications', processing))}</td>
-      <td>{numFormat(sumProps('receivedPeople', processing))}</td>
-      <td>{numFormat(sumProps('approvedApplications', processing))}</td>
-      <td>{numFormat(sumProps('approvedPeople', processing))}</td>
-      <td>{numFormat(sumProps('declinedApplications', processing))}</td>
+      <td>{formatNum(sumProps('receivedApplications', processing))}</td>
+      <td>{formatNum(sumProps('receivedPeople', processing))}</td>
+      <td>{formatNum(sumProps('approvedApplications', processing))}</td>
+      <td>{formatNum(sumProps('approvedPeople', processing))}</td>
+      <td>{formatNum(sumProps('declinedApplications', processing))}</td>
     </tr>
   </tbody>
 </table>

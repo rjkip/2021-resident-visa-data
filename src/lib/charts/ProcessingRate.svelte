@@ -2,18 +2,8 @@
   import { processing } from '$lib/data/processing';
   import Chart from 'svelte-frappe-charts';
 
-  const processingRate = processing.map(
-    (row) => row.approvedApplications + row.declinedApplications,
-  );
-  const movingAverageDays = 14;
-  const movingAverage = processingRate.map((rate, index, array) => [
-    (
-      Array(movingAverageDays)
-        .fill(0)
-        .map((_, offset) => array[index - offset])
-        .reduce((acc, n) => acc + n, 0) / movingAverageDays
-    ).toFixed(),
-  ]);
+  const processingRate = processing.map((it) => it.processedApplications);
+  const movingAverage = processing.map((it) => it.processedApplicationsMovAvg14);
 
   const chartData = {
     labels: processing.map((row) => row.date),
@@ -23,7 +13,7 @@
         values: processingRate,
       },
       {
-        name: `${movingAverageDays}-day moving average`,
+        name: `14-day moving average`,
         values: movingAverage,
       },
     ],
