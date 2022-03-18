@@ -12,7 +12,8 @@
     class:up
     class:down
     class:good={(up && good === 'up') || (down && good === 'down')}
-    class:bad={(up && good === 'down') || (down && good === 'up')}>{symbol}</span
+    class:bad={(up && good === 'down') || (down && good === 'up')}
+    aria-label={up ? 'trending up' : down ? 'trending down' : null}>{symbol}</span
   >
 {/if}
 
