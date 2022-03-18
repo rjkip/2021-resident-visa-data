@@ -6,7 +6,7 @@
   const slice = processing.slice(31);
   const weeksProcessingLeft = slice
     .map(function (it) {
-      const processedInWeeks = ((it.processedInDays || 0) / 7).toFixed(2);
+      const processedInWeeks = Math.ceil((it.processedInDays || 0) / 7);
       return {
         processedInWeeks: processedInWeeks,
         processedBy: it.processedBy,
@@ -21,7 +21,7 @@
     })
     .slice(0);
   const processedBy = formatLongDate(slice[slice.length - 1].processedBy);
-  const weeksProcessingLeftCurrently = slice[slice.length - 1].processedInDays / 7;
+  const weeksProcessingLeftCurrently = Math.ceil(slice[slice.length - 1].processedInDays / 7);
 
   const chartData = {
     labels: slice.map((row) => row.date),
