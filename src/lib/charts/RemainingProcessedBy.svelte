@@ -15,18 +15,24 @@
 
 <p class="notice">
   ✅ Going by the last 14 days, most of the remaining
-  <strong>{formatNum(lastDay.remainingApplications)}</strong>
+  <strong class="datum">{formatNum(lastDay.remainingApplications)}</strong>
   applications will be processed by
-  <strong>{formatLongDate(lastDay.processedBy)}</strong>&nbsp;<Trend
+  <strong class="datum">{formatLongDate(lastDay.processedBy)}</strong>&nbsp;<Trend
     up={processedByUp}
     down={processedByDown}
     good="down"
   />
   at a rate of
-  <strong>{formatNum(lastDay.processedApplicationsMovAvg14)}</strong>&nbsp;<Trend
+  <strong class="datum">{formatNum(lastDay.processedApplicationsMovAvg14)}</strong>&nbsp;<Trend
     up={processedApplicationsUp}
     down={processedApplicationsDown}
     good="up"
   />
   applications per day.
 </p>
+
+<style>
+  .datum {
+    white-space: nowrap;
+  }
+</style>
