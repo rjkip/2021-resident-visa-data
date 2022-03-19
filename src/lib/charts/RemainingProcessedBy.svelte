@@ -1,7 +1,7 @@
 <script>
   import { processing } from '$lib/data/processing';
   import { formatLongDate, formatNum } from '../formatting';
-  import Trend from './Trend.svelte';
+  import Trend from '../Trend.svelte';
 
   const lastDay = processing[processing.length - 1];
   const fortnightAgo = processing[processing.length - 1 - 14];
