@@ -20,9 +20,11 @@ Processing date: ${formatIsoDate(new Date(processingDate))}`.trim(),
     mailParams &&
     `mailto:2021-resident-visa@reinier.nz?${mailParams.toString().replace(/\+/g, '%20')}`;
 
-  function submitted() {
-    if (submitLink && 'plausible' in window) {
-      window.plausible('processing-details-mailto');
+  let formCompleted = false;
+  $: if (submitLink && !formCompleted) {
+    formCompleted = true;
+    if ('plausible' in window) {
+      window.plausible('processing-details-completed');
     }
   }
 </script>
@@ -47,11 +49,7 @@ Processing date: ${formatIsoDate(new Date(processingDate))}`.trim(),
   <span>Are you a human? What year is it?</span>
   <input type="text" bind:value={whatYearIsIt} />
   <p>
-    <a
-      class="button"
-      href={submitLink || null}
-      on:click={submitted}>Submit</a
-    >
+    <a class="button" href={submitLink || null}>Submit</a>
   </p>
 </form>
 
