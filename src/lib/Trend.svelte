@@ -13,13 +13,14 @@
     class:down
     class:good={(up && good === 'up') || (down && good === 'down')}
     class:bad={(up && good === 'down') || (down && good === 'up')}
-    aria-label={up ? 'trending up' : down ? 'trending down' : null}>{symbol}</span
+    title={up ? 'Trending up' : down ? 'Trending down' : null}>{symbol}</span
   >
 {/if}
 
 <style>
   .trend {
     font-size: 0.8em;
+    cursor: default;
   }
   .up {
     vertical-align: top;
