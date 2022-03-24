@@ -3,6 +3,13 @@ const longDateTimeFormat = new Intl.DateTimeFormat(locales, {
   dateStyle: 'long',
   timeZone: 'Pacific/Auckland',
 });
+const weekDayShortDateTimeFormat = new Intl.DateTimeFormat(locales, {
+  weekday: 'short',
+  day: 'numeric',
+  month: 'short',
+  year: 'numeric',
+  timeZone: 'Pacific/Auckland',
+});
 const shortDateTimeFormat = new Intl.DateTimeFormat(locales, {
   year: 'numeric',
   month: '2-digit',
@@ -11,8 +18,14 @@ const shortDateTimeFormat = new Intl.DateTimeFormat(locales, {
 });
 const numFormatter = new Intl.NumberFormat(locales);
 
+/** NZ timezone 1 January 2022 */
 export function formatLongDate(date) {
   return longDateTimeFormat.format(date);
+}
+
+/** NZ timezone Sun, 1 Jan 2022 */
+export function formatWeekDayShortDate(date) {
+  return weekDayShortDateTimeFormat.format(date);
 }
 
 /** NZ timezone 2000-01-01 */
