@@ -1,4 +1,6 @@
 // Copy-paste from https://www.immigration.govt.nz/documents/other-resources/2021-resident-visa-processing.pdf
+import { formatIsoDate } from '../formatting';
+
 let data = `
 Wed, Dec 1 1,358 2,832 . . .
 Thu, Dec 2 2,496 5,431 . . .
@@ -115,9 +117,8 @@ Mon, Mar 14 1,268 2,697 337 714 .
 function localIsoDate(month, day) {
   // FIXME: Latent bug for December 2022
   const date = new Date(`${month} ${day}, ${month === 'Dec' ? 2021 : 2022}`);
-  const pad = (n) => (n >= 10 ? n : `0${n}`);
 
-  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+  return formatIsoDate(date);
 }
 
 export const processing = data
