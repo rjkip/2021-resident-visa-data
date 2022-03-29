@@ -36,5 +36,8 @@
   lineOptions={{ hideDots: true, regionFill: true }}
   tooltipOptions={{
     formatTooltipX: formatDateStringTooltipX,
+    formatTooltipY(pct) {
+      return `${pct}%`;
+    },
   }}
 />
