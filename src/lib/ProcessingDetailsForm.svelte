@@ -1,7 +1,7 @@
 <script>
   import { formatIsoDate } from '$lib/formatting';
 
-  let applicationDate, processingDate, whatYearIsIt, phase1Eligible;
+  let applicationDate, processingDate, whatYearIsIt, phase;
 
   $: mailParams =
     applicationDate &&
@@ -13,7 +13,7 @@
       subject: '2021 Resident Visa processing started',
       body: `
 Application date: ${formatIsoDate(new Date(applicationDate))}
-Phase 1 eligible: ${phase1Eligible ? 'Yes' : 'No'}
+Phase: ${phase}
 Processing date: ${formatIsoDate(new Date(processingDate))}`.trim(),
     });
   $: submitLink =
@@ -33,16 +33,19 @@ Processing date: ${formatIsoDate(new Date(processingDate))}`.trim(),
   <span>When did you apply?</span>
   <input type="date" bind:value={applicationDate} />
   <span>
-    Were you eligible to apply under
-    <a
+    Which phase did you apply under? (<a
       target="_blank"
       href="https://www.immigration.govt.nz/new-zealand-visas/already-have-a-visa/one-off-residence-visa/2021-resident-visa-application-process"
-      >Phase 1</a
-    >?
-  </span>
+      >Phases</a
+    >)</span
+  >
   <label>
-    <input type="checkbox" bind:checked={phase1Eligible} />
-    Yes, phase 1
+    <input type="radio" name="phase" bind:group={phase} value="1" />
+    Phase 1
+  </label>
+  <label>
+    <input type="radio" name="phase" bind:group={phase} value="2" />
+    Phase 2
   </label>
   <span>When did Immigration New Zealand start processing your application?</span>
   <input type="date" bind:value={processingDate} />
