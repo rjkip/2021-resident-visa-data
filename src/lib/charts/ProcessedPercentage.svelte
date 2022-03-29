@@ -1,6 +1,7 @@
 <script>
   import { processing } from '$lib/data/processing';
   import Chart from 'svelte-frappe-charts';
+  import { formatDateStringTooltipX } from './charts';
 
   const chartData = {
     labels: processing.map((row) => row.date),
@@ -33,4 +34,7 @@
   data={chartData}
   axisOptions={{ xIsSeries: true, xAxisMode: 'tick' }}
   lineOptions={{ hideDots: true, regionFill: true }}
+  tooltipOptions={{
+    formatTooltipX: formatDateStringTooltipX,
+  }}
 />

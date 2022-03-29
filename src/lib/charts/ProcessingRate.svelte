@@ -1,6 +1,7 @@
 <script>
   import { processing } from '$lib/data/processing';
   import Chart from 'svelte-frappe-charts';
+  import { formatDateStringTooltipX } from './charts';
 
   const processingRate = processing.map((it) => it.processedApplications);
   const movingAverage = processing.map((it) => it.processedApplicationsMovAvg14);
@@ -26,4 +27,7 @@
   data={chartData}
   axisOptions={{ xIsSeries: true, xAxisMode: 'tick' }}
   lineOptions={{ hideDots: true, regionFill: true }}
+  tooltipOptions={{
+    formatTooltipX: formatDateStringTooltipX,
+  }}
 />

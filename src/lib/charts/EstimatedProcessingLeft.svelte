@@ -2,6 +2,7 @@
   import { processing } from '$lib/data/processing';
   import Chart from 'svelte-frappe-charts';
   import { formatLongDate } from '../formatting';
+  import { formatDateStringTooltipX } from './charts';
 
   const slice = processing.slice(31);
   const weeksProcessingLeft = slice
@@ -49,9 +50,7 @@
   axisOptions={{ xIsSeries: true, xAxisMode: 'tick' }}
   lineOptions={{ hideDots: true, regionFill: true }}
   tooltipOptions={{
-    formatTooltipX(date) {
-      return `On ${formatLongDate(new Date(date))}`;
-    },
+    formatTooltipX: formatDateStringTooltipX,
     formatTooltipY(value) {
       return value === undefined
         ? ''
