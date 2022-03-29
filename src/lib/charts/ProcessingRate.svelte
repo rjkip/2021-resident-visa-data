@@ -3,11 +3,17 @@
   import Chart from 'svelte-frappe-charts';
   import { formatDateStringTooltipX } from './charts';
 
-  const processingRate = processing.map((it) => it.processedApplications);
-  const movingAverage = processing.map((it) => it.processedApplicationsMovAvg14);
+  const DAY_SAT = 6;
+  const DAY_SUN = 0;
+  const processingWeekdays = processing.filter(
+    (row) => ![DAY_SAT, DAY_SUN].includes(new Date(row.date).getDay()),
+  );
+
+  const processingRate = processingWeekdays.map((it) => it.processedApplications);
+  const movingAverage = processingWeekdays.map((it) => it.processedApplicationsMovAvg14);
 
   const chartData = {
-    labels: processing.map((row) => row.date),
+    labels: processingWeekdays.map((row) => row.date),
     datasets: [
       {
         name: 'Processing rate',
