@@ -36,7 +36,7 @@ export function formatLongWeekdayDate(date) {
 }
 
 /** NZ timezone Sun, 1 Jan 2022 */
-export function formatWeekDayShortDate(date) {
+export function formatWeekdayShortDate(date) {
   return weekDayShortDateTimeFormat.format(date);
 }
 

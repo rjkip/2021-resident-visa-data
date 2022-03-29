@@ -1,7 +1,7 @@
 <script>
   import { processing } from '$lib/data/processing';
   import ProcessingDataset from './ProcessingDataset.svelte';
-  import { formatNum, formatWeekDayShortDate } from './formatting';
+  import { formatNum, formatWeekdayShortDate } from './formatting';
 
   function sumProps(prop, array) {
     return array.reduce((acc, obj) => acc + obj[prop], 0);
@@ -24,7 +24,7 @@
   <tbody>
     {#each [...processing].reverse() as row}
       <tr>
-        <td class="date">{formatWeekDayShortDate(new Date(row.date))}</td>
+        <td class="date">{formatWeekdayShortDate(new Date(row.date))}</td>
         <td>{formatNum(row.receivedApplications)}</td>
         <td>{formatNum(row.receivedPeople)}</td>
         <td>{formatNum(row.approvedApplications)}</td>
