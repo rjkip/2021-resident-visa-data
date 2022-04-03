@@ -8,16 +8,15 @@
   import RemainingProcessedBy from './charts/RemainingProcessedBy.svelte';
 </script>
 
-{#if !browser}
-  <p>Charts are only available when JavaScript is enabled.</p>
-{/if}
-
 <div class="charts">
   <div style="grid-area: text">
     <slot name="header" />
     <div class="remaining-processed-by">
       <RemainingProcessedBy />
     </div>
+    {#if !browser}
+      <p>Charts are only available when JavaScript is enabled.</p>
+    {/if}
   </div>
   {#if browser}
     <div style="grid-area: estimated-processing-left">
