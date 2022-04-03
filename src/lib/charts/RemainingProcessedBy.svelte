@@ -11,6 +11,16 @@
     lastDay.processedApplicationsMovAvg14 > fortnightAgo.processedApplicationsMovAvg14;
   const processedApplicationsDown =
     lastDay.processedApplicationsMovAvg14 < fortnightAgo.processedApplicationsMovAvg14;
+
+  $: description = [
+    'Most of the remaining ',
+    formatNum(lastDay.remainingApplications),
+    ' applications will be processed by ',
+    formatLongDate(lastDay.processedBy),
+    ' at a rate of ',
+    formatNum(lastDay.processedApplicationsMovAvg14),
+    ' applications per day.',
+  ].join('');
 </script>
 
 <p class="notice">
@@ -30,6 +40,11 @@
   />
   applications per day.
 </p>
+
+<svelte:head>
+  <meta name="description" content={description} />
+  <meta property="og:description" content={description} />
+</svelte:head>
 
 <style>
   .datum {

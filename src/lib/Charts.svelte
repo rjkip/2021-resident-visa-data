@@ -10,14 +10,16 @@
 
 {#if !browser}
   <p>Charts are only available when JavaScript is enabled.</p>
-{:else}
-  <div class="charts">
-    <div style="grid-area: text">
-      <slot name="header" />
-      <div class="remaining-processed-by">
-        <RemainingProcessedBy />
-      </div>
+{/if}
+
+<div class="charts">
+  <div style="grid-area: text">
+    <slot name="header" />
+    <div class="remaining-processed-by">
+      <RemainingProcessedBy />
     </div>
+  </div>
+  {#if browser}
     <div style="grid-area: estimated-processing-left">
       <EstimatedProcessingLeft />
     </div>
@@ -65,8 +67,8 @@
         }}
       />
     </div>
-  </div>
-{/if}
+  {/if}
+</div>
 
 <style>
   @media (min-width: 1200px) {
