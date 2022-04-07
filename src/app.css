@@ -24,6 +24,11 @@ hr {
   padding: 1rem;
   border-radius: 0.25rem;
 }
+.warning {
+  background: #fff9eb;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
 
 .button {
   background: #9f3d3d;

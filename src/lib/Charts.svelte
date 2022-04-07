@@ -6,21 +6,23 @@
   import { browser } from '$app/env';
   import EstimatedProcessingLeft from './charts/EstimatedProcessingLeft.svelte';
   import RemainingProcessedBy from './charts/RemainingProcessedBy.svelte';
+  import PickedUpByVisaExpiry from './charts/PickedUpByVisaExpiry.svelte';
 </script>
 
-<div class="charts">
-  <div style="grid-area: text">
-    <slot name="header" />
-    <div class="remaining-processed-by">
+<slot name="header" />
+
+{#if !browser}
+  <p>Charts are only available when JavaScript is enabled.</p>
+{:else}
+  <div class="charts">
+    <div style="grid-area: remaining-processed-by">
       <RemainingProcessedBy />
     </div>
-    {#if !browser}
-      <p>Charts are only available when JavaScript is enabled.</p>
-    {/if}
-  </div>
-  {#if browser}
     <div style="grid-area: estimated-processing-left">
       <EstimatedProcessingLeft />
+    </div>
+    <div style="grid-area: picked-up;">
+      <PickedUpByVisaExpiry />
     </div>
     <div style="grid-area: processing-rate">
       <ProcessingRate />
@@ -66,21 +68,22 @@
         }}
       />
     </div>
-  {/if}
-</div>
+  </div>
+{/if}
 
 <style>
   @media (min-width: 1200px) {
     .charts {
       display: grid;
       grid-template:
-        'text estimated-processing-left' auto
+        'remaining-processed-by remaining-processed-by' auto
+        'estimated-processing-left picked-up' auto
         'processing-rate processed-percentage' auto
         'cumulative-applications applications' auto
         'cumulative-people people' auto / 50% 50%;
     }
-    .remaining-processed-by {
-      max-width: 500px;
+    .charts > div {
+      align-self: end;
     }
   }
 </style>
