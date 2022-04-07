@@ -61,4 +61,5 @@
   data={chartData}
   axisOptions={undefined && { xIsSeries: true, xAxisMode: 'tick' }}
   lineOptions={undefined && { hideDots: true, regionFill: true }}
+  colors={['#648fff', '#dc267f', '#ffb000']}
 />
