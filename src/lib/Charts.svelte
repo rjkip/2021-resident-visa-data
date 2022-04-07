@@ -15,10 +15,8 @@
   <p>Charts are only available when JavaScript is enabled.</p>
 {:else}
   <div class="charts">
-    <div style="grid-area: remaining-processed-by">
-      <RemainingProcessedBy />
-    </div>
     <div style="grid-area: estimated-processing-left">
+      <RemainingProcessedBy />
       <EstimatedProcessingLeft />
     </div>
     <div style="grid-area: picked-up;">
@@ -76,11 +74,11 @@
     .charts {
       display: grid;
       grid-template:
-        'remaining-processed-by remaining-processed-by' auto
         'estimated-processing-left picked-up' auto
         'processing-rate processed-percentage' auto
         'cumulative-applications applications' auto
         'cumulative-people people' auto / 50% 50%;
+      gap: 1em;
     }
     .charts > div {
       align-self: end;
