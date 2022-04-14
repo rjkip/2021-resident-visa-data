@@ -6,7 +6,7 @@
   import { browser } from '$app/env';
   import EstimatedProcessingLeft from './charts/EstimatedProcessingLeft.svelte';
   import RemainingProcessedBy from './charts/RemainingProcessedBy.svelte';
-  import PickedUpByVisaExpiry from './charts/PickedUpByVisaExpiry.svelte';
+  import SupportingDocsByVisaExpiry from './charts/SupportingDocsByVisaExpiry.svelte';
 </script>
 
 <slot name="header" />
@@ -20,7 +20,7 @@
       <EstimatedProcessingLeft />
     </div>
     <div style="grid-area: picked-up;">
-      <PickedUpByVisaExpiry />
+      <SupportingDocsByVisaExpiry />
     </div>
     <div style="grid-area: processing-rate">
       <ProcessingRate />

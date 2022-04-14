@@ -61,7 +61,7 @@
 </p>
 <Chart
   type="bar"
-  title={'Applications picked up for processing by visa expiry date and stream'}
+  title={'Asked for supporting documents, by visa expiry date and stream'}
   data={chartData}
   axisOptions={undefined && { xIsSeries: true, xAxisMode: 'tick' }}
   lineOptions={undefined && { hideDots: true, regionFill: true }}
