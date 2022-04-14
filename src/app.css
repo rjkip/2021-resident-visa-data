@@ -29,19 +29,3 @@ hr {
   padding: 1rem;
   border-radius: 0.25rem;
 }
-
-.button {
-  background: #9f3d3d;
-  cursor: default;
-
-  border: 0;
-  font-size: 1em;
-  border-radius: 0.25rem;
-  color: white;
-  padding: 0.4em 0.5em;
-  text-decoration: none;
-}
-.button[href] {
-  background: #049b61;
-  cursor: pointer;
-}
