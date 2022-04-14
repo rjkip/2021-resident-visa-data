@@ -126,6 +126,13 @@ Thu, Mar 31 1,164 2,505 451 921 .
 Wed, Mar 30 534 1,056 285 612 1
 Tue, Mar 29 355 815 132 301 1
 Mon, Mar 28 796 1,753 523 1,106 .
+Sun, Apr 10 11 33 . . .
+Sat, Apr 9 74 164 . . .
+Fri, Apr 8 376 910 364 803 .
+Thu, Apr 7 393 902 385 848 1
+Wed, Apr 6 387 942 369 812 .
+Tue, Apr 5 337 785 233 494 .
+Mon, Apr 4 353 851 527 1,071 1
 `;
 
 function localIsoDate(month, day) {
