@@ -19,7 +19,7 @@ const weekDayShortDateTimeFormat = new Intl.DateTimeFormat(locales, {
 });
 const shortMonthFormat = new Intl.DateTimeFormat(locales, {
   month: 'short',
-  year: 'numeric',
+  year: '2-digit',
   timeZone: 'Pacific/Auckland',
 });
 const shortDateTimeFormat = new Intl.DateTimeFormat(locales, {
@@ -44,7 +44,7 @@ export function formatLongWeekdayDate(date) {
 export function formatWeekdayShortDate(date) {
   return weekDayShortDateTimeFormat.format(date);
 }
-/** NZ timezone Jan 2022 */
+/** NZ timezone Jan 22 */
 export function formatShortMonth(date) {
   return shortMonthFormat.format(date);
 }
