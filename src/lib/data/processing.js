@@ -140,6 +140,13 @@ Thu, Apr 14 280 631 303 679 2
 Wed, Apr 13 308 688 314 689 1
 Tue, Apr 12 268 625 110 257 .
 Mon, Apr 11 323 765 504 1,099 .
+Sun, Apr 24 73 179 . . .
+Sat, Apr 23 77 200 . . .
+Fri, Apr 22 171 430 222 515 1
+Thu, Apr 21 250 591 275 630 1
+Wed, Apr 20 316 685 190 519 1
+Tue, Apr 19 255 564 529 1,185 1
+Mon, Apr 18 97 208 . . .
 `;
 
 function localIsoDate(month, day) {
