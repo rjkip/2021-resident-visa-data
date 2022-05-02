@@ -63,6 +63,18 @@ export function formatIsoYearMonth(date) {
   return `${part('year')}-${part('month')}`;
 }
 
+/** NZ timezone 1/22 */
+const shortestMonthYearFormat = new Intl.DateTimeFormat(locales, {
+  year: '2-digit',
+  month: 'numeric',
+  timeZone: 'Pacific/Auckland',
+});
+export function formatShortestMonthYear(date) {
+  const parts = shortestMonthYearFormat.formatToParts(date);
+  const part = (type) => parts.filter((it) => it.type === type).map((it) => it.value)[0];
+  return `${part('month').replace(/^0/, '')}/${part('year')}`;
+}
+
 export function formatNum(num) {
   return numFormatter.format(num);
 }

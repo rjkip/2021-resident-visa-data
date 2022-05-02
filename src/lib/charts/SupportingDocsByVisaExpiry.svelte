@@ -1,6 +1,6 @@
 <script>
   import Chart from 'svelte-frappe-charts';
-  import { formatIsoYearMonth, formatShortMonth } from '../formatting';
+  import { formatIsoYearMonth, formatShortestMonthYear } from '../formatting';
 
   const data = `
 4/3/2022 20:55:39\tYes\t8/6/2022\t4/2/2022\tSettled\t3/3/2022
@@ -21,6 +21,8 @@
 4/20/2022 14:11:46\tYes\t3/11/2024\t4/14/2022\tSkilled\t3/1/2022
 4/22/2022 7:26:31\tYes\t2/4/2024\t4/13/2022\tSkilled\t3/1/2022
 4/22/2022 18:36:45\tYes\t7/24/2024\t4/20/2022\tSettled\t3/1/2022
+5/1/2022 22:36:15\tYes\t4/8/2024\t4/18/2022\tI don't know\t
+5/2/2022 8:34:05\tYes\t11/24/2024\t4/24/2022\tSkilled\t3/1/2022
 `
     .trim()
     .split('\n')
@@ -55,7 +57,7 @@
   ]);
 
   const chartData = {
-    labels: months.map((it) => formatShortMonth(new Date(it))),
+    labels: months.map((it) => formatShortestMonthYear(new Date(it))),
     datasets: byMonthByStream.map(([stream, data]) => ({
       name: stream,
       values: Object.values(data),
