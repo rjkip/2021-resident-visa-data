@@ -6,7 +6,6 @@
   import { browser } from '$app/env';
   import EstimatedProcessingLeft from './charts/EstimatedProcessingLeft.svelte';
   import RemainingProcessedBy from './charts/RemainingProcessedBy.svelte';
-  import SupportingDocsByVisaExpiry from './charts/SupportingDocsByVisaExpiry.svelte';
 </script>
 
 <slot name="header" />
@@ -15,12 +14,11 @@
   <p>Charts are only available when JavaScript is enabled.</p>
 {:else}
   <div class="charts">
-    <div style="grid-area: estimated-processing-left">
+    <div style="grid-area: remaining-processed-by">
       <RemainingProcessedBy />
-      <EstimatedProcessingLeft />
     </div>
-    <div style="grid-area: picked-up;">
-      <SupportingDocsByVisaExpiry />
+    <div style="grid-area: estimated-processing-left">
+      <EstimatedProcessingLeft />
     </div>
     <div style="grid-area: processing-rate">
       <ProcessingRate />
@@ -74,14 +72,11 @@
     .charts {
       display: grid;
       grid-template:
-        'estimated-processing-left picked-up' auto
+        'remaining-processed-by estimated-processing-left' auto
         'processing-rate processed-percentage' auto
         'cumulative-applications applications' auto
         'cumulative-people people' auto / 50% 50%;
       gap: 1em;
-    }
-    .charts > div {
-      align-self: end;
     }
   }
 </style>

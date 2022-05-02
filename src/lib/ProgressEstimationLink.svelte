@@ -1,17 +1,16 @@
 <div>
   <p>
-    Has Immigration New Zealand started processing your <em>2021 Resident Visa</em> application? Please
-    provide some details so a progress estimate can be provided for those that are still waiting.
+    Has Immigration New Zealand processed your <em>2021 Resident Visa</em> application? Please provide
+    some details so a progress estimate can be provided for those that are still waiting.
   </p>
   <p>
     <a class="button approved" href="https://forms.gle/ajpv9927MdJ3wWWd6" target="_blank"
-      >☑️ INZ approved my application</a
+      >☑️ INZ processed my application</a
     >
   </p>
-  <p>
-    <a class="button docs" href="https://forms.gle/TLTNxgHiyNhibGy26" target="_blank"
-      >📄 INZ asked for supporting documents</a
-    >
+  <p class="docs">
+    INZ is asking for supporting documents in no apparent order. It is no indication of when your
+    visa will be processed. There&rsquo;s no evidence of <em>Phase 2</em> visas being processed yet.
   </p>
 </div>
 
@@ -42,7 +41,12 @@
     background: #049b61;
     cursor: pointer;
   }
-  .button.docs {
-    background: #4b4ba8;
+  .docs {
+    color: #333;
+    font-size: 90%;
+    font-style: italic;
+  }
+  .docs em {
+    font-style: normal;
   }
 </style>
