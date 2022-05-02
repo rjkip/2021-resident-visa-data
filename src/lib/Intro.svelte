@@ -12,7 +12,7 @@
   available on or through this website.
 </p>
 <p>
-  The latest update is from <strong><LatestUpdate /></strong>.
+  Immigration&rsquo;s latest update is from <strong><LatestUpdate /></strong>.
 </p>
 <p>
   <strong>Data source:</strong>
