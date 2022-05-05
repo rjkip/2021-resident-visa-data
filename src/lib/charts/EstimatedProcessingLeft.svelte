@@ -4,28 +4,27 @@
   import { formatLongDate } from '../formatting';
   import { formatDateStringTooltipX } from './charts';
 
-  const slice = processing.slice(31);
-  const weeksProcessingLeft = slice
-    .map(function (it) {
-      const processedInWeeks = Math.ceil((it.processedInDays || 0) / 7);
-      return {
-        processedInWeeks: processedInWeeks,
-        processedBy: it.processedBy,
-        /**
-         * Hack to show the value in the graph;
-         * it is time for another charting lib.
-         */
-        toString() {
-          return processedInWeeks;
-        },
-      };
-    })
-    .slice(0);
-  const processedBy = formatLongDate(slice[slice.length - 1].processedBy);
-  const weeksProcessingLeftCurrently = Math.ceil(slice[slice.length - 1].processedInDays / 7);
+  const weeksProcessingLeft = processing.map((it) => {
+    const processedInWeeks = Math.ceil((it.processedInDays || 0) / 7);
+    return {
+      processedInWeeks: processedInWeeks,
+      processedBy: it.processedBy,
+      /**
+       * Hack to show the value in the graph;
+       * it is time for another charting lib.
+       */
+      toString() {
+        return Math.min(100, this.processedInWeeks);
+      },
+    };
+  });
+  const processedBy = formatLongDate(processing[processing.length - 1].processedBy);
+  const weeksProcessingLeftCurrently = Math.ceil(
+    processing[processing.length - 1].processedInDays / 7,
+  );
 
   const chartData = {
-    labels: slice.map((row) => row.date),
+    labels: processing.map((row) => row.date),
     datasets: [
       {
         name: `Estimated weeks of processing left`,
