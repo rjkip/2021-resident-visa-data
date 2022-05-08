@@ -3,6 +3,7 @@
   import Chart from 'svelte-frappe-charts';
   import { formatLongDate } from '../formatting';
   import { formatDateStringTooltipX } from './charts';
+  import RemainingProcessedBy from './RemainingProcessedBy.svelte';
 
   const weeksProcessingLeft = processing.map((it) => {
     const processedInWeeks = Math.ceil((it.processedInDays || 0) / 7);
@@ -40,6 +41,8 @@
     ],
   };
 </script>
+
+<RemainingProcessedBy />
 
 <Chart
   type="line"

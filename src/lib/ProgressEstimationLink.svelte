@@ -10,7 +10,7 @@
   </p>
   <p class="docs">
     INZ is asking for supporting documents in no apparent order. It is no indication of when your
-    visa will be processed. There&rsquo;s no evidence of <em>Phase 2</em> visas being processed yet.
+    visa will be processed.
   </p>
 </div>
 
