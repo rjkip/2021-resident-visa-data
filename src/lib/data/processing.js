@@ -168,6 +168,13 @@ Thu, May 12 126 283 311 711 .
 Wed, May 11 161 406 134 400 1
 Tue, May 10 165 391 123 354 .
 Mon, May 9 205 479 219 474 .
+Sun, May 22 18 28 . . .
+Sat, May 21 14 34 . . .
+Fri, May 20 151 376 72 186 .
+Thu, May 19 140 357 74 173 1
+Wed, May 18 136 311 150 334 .
+Tue, May 17 144 349 45 97 1
+Mon, May 16 165 398 166 367 .
 `;
 
 function localIsoDate(month, day) {
