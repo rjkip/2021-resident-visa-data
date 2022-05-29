@@ -15,7 +15,7 @@
        * it is time for another charting lib.
        */
       toString() {
-        return Math.min(100, this.processedInWeeks);
+        return Math.min(200, this.processedInWeeks);
       },
     };
   });

@@ -8,10 +8,6 @@
       >☑️ INZ processed my application</a
     >
   </p>
-  <p class="docs">
-    INZ is asking for supporting documents in no apparent order. It is no indication of when your
-    visa will be processed.
-  </p>
 </div>
 
 <style>
@@ -40,13 +36,5 @@
   .button[href] {
     background: #049b61;
     cursor: pointer;
-  }
-  .docs {
-    color: #333;
-    font-size: 90%;
-    font-style: italic;
-  }
-  .docs em {
-    font-style: normal;
   }
 </style>
