@@ -1,0 +1,36 @@
+name: Update processing numbers
+
+on:
+  workflow_dispatch: ~
+  schedule:
+    - cron: '9 * * * *' # Every hour on the 9th minute
+
+jobs:
+  update_numbers:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Update processing numbers
+        run: |
+          sudo apt install -y poppler-utils
+          ./update-numbers.bash
+      - name: Commit any changes
+        run: |
+          set -euo pipefail
+
+          git status
+          git diff
+
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+          git add src/lib/data/processing-data.js
+
+          if git diff | grep -P '^\+' && git diff | grep -vP '^-'
+          then
+            git commit -m "New processing data ($(date +s'%a, %b %e %Y' | sed -r 's#\s+# #g'))"
+            git push
+          else
+            echo 'Nothing to commit, or there are deletions'
+          fi
