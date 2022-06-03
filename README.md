@@ -2,12 +2,15 @@
 
 ## Data
 
-The 2021 Resident Visa processing times data must be updated manually from
+The 2021 Resident Visa processing times data is updated automatically from
 [Immigration New Zealand’s PDF](https://www.immigration.govt.nz/documents/other-resources/2021-resident-visa-processing.pdf).
 
-Copy and append the added rows to the template string in [`processing.js`](src/lib/data/processing.js).
+To pull in the latest updates, run `./update-numbers.bash`, or copy the missing
+rows from the PDF to the top of the template string in
+[`src/lib/data/processing-data.js`](src/lib/data/processing-data.js).
 
-Confirm the data is interpreted properly by running the application and inspecting its output.
+Confirm the data is interpreted properly by running the application and
+inspecting its output.
 
 ## Installation/usage
 

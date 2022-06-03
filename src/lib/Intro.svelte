@@ -3,8 +3,8 @@
 </script>
 
 <p>
-  Regular updates on 2021 Resident Visa processing times. These are processed manually from the
-  Immigration New Zealand website.
+  Regular updates on 2021 Resident Visa processing times. These are processed from the Immigration
+  New Zealand website.
 </p>
 <p class=" notice">
   💁 This website makes no warranty, express or implied, nor assumes any legal liability or
