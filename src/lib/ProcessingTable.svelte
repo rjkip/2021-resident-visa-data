@@ -10,40 +10,46 @@
 
 <ProcessingDataset />
 
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Total applications received</th>
-      <th>Total number of people included</th>
-      <th>Applications approved and visas issued</th>
-      <th>People approved and issued visas</th>
-      <th>Applications declined (Failed criteria)</th>
-    </tr>
-  </thead>
-  <tbody>
-    {#each [...processing].reverse() as row}
+<div class="scroller">
+  <table>
+    <thead>
       <tr>
-        <td class="date">{formatWeekdayShortDate(new Date(row.date))}</td>
-        <td>{formatNum(row.receivedApplications)}</td>
-        <td>{formatNum(row.receivedPeople)}</td>
-        <td>{formatNum(row.approvedApplications)}</td>
-        <td>{formatNum(row.approvedPeople)}</td>
-        <td>{formatNum(row.declinedApplications)}</td>
+        <th>Date</th>
+        <th>Total applications received</th>
+        <th>Total number of people included</th>
+        <th>Applications approved and visas issued</th>
+        <th>People approved and issued visas</th>
+        <th>Applications declined (Failed criteria)</th>
       </tr>
-    {/each}
-    <tr class="total">
-      <th>Total</th>
-      <td>{formatNum(sumProps('receivedApplications', processing))}</td>
-      <td>{formatNum(sumProps('receivedPeople', processing))}</td>
-      <td>{formatNum(sumProps('approvedApplications', processing))}</td>
-      <td>{formatNum(sumProps('approvedPeople', processing))}</td>
-      <td>{formatNum(sumProps('declinedApplications', processing))}</td>
-    </tr>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {#each [...processing].reverse() as row}
+        <tr>
+          <td class="date">{formatWeekdayShortDate(new Date(row.date))}</td>
+          <td>{formatNum(row.receivedApplications)}</td>
+          <td>{formatNum(row.receivedPeople)}</td>
+          <td>{formatNum(row.approvedApplications)}</td>
+          <td>{formatNum(row.approvedPeople)}</td>
+          <td>{formatNum(row.declinedApplications)}</td>
+        </tr>
+      {/each}
+      <tr class="total">
+        <th>Total</th>
+        <td>{formatNum(sumProps('receivedApplications', processing))}</td>
+        <td>{formatNum(sumProps('receivedPeople', processing))}</td>
+        <td>{formatNum(sumProps('approvedApplications', processing))}</td>
+        <td>{formatNum(sumProps('approvedPeople', processing))}</td>
+        <td>{formatNum(sumProps('declinedApplications', processing))}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <style>
+  .scroller {
+    overflow-x: auto;
+  }
+
   th {
     padding: 0.5em;
   }
