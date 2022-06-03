@@ -3,7 +3,7 @@ name: Update processing numbers
 on:
   workflow_dispatch: ~
   schedule:
-    - cron: '9 * * * *' # Every hour on the 9th minute
+    - cron: '23 * * * 4-6' # Every hour on the 23rd minute, Thu-Sat
 
 jobs:
   update_numbers:
