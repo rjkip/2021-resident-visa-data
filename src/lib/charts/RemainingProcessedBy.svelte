@@ -2,15 +2,16 @@
   import { processing } from '$lib/data/processing';
   import { formatLongDate, formatNum } from '../formatting';
   import Trend from '../Trend.svelte';
+  import { movAvgDays } from '../data/processing.js';
 
   const lastDay = processing[processing.length - 1];
-  const fortnightAgo = processing[processing.length - 1 - 14];
+  const fortnightAgo = processing[processing.length - 1 - movAvgDays];
   const processedByUp = lastDay.processedBy > fortnightAgo.processedBy;
   const processedByDown = lastDay.processedBy < fortnightAgo.processedBy;
   const processedApplicationsUp =
-    lastDay.processedApplicationsMovAvg14 > fortnightAgo.processedApplicationsMovAvg14;
+    lastDay.processedApplicationsMovAvg > fortnightAgo.processedApplicationsMovAvg;
   const processedApplicationsDown =
-    lastDay.processedApplicationsMovAvg14 < fortnightAgo.processedApplicationsMovAvg14;
+    lastDay.processedApplicationsMovAvg < fortnightAgo.processedApplicationsMovAvg;
 
   $: description = [
     'Most of the remaining ',
@@ -18,13 +19,13 @@
     ' applications will be processed by ',
     formatLongDate(lastDay.processedBy),
     ' at a rate of ',
-    formatNum(lastDay.processedApplicationsMovAvg14),
+    formatNum(lastDay.processedApplicationsMovAvg),
     ' applications per day.',
   ].join('');
 </script>
 
 <p class="notice">
-  ✅ Going by the last 14 days, most of the remaining
+  ✅ Going by the last {movAvgDays} days, most of the remaining
   <strong class="datum">{formatNum(lastDay.remainingApplications)}</strong>
   applications will be processed by
   <strong class="datum">{formatLongDate(lastDay.processedBy)}</strong>&nbsp;<Trend
@@ -33,7 +34,7 @@
     good="down"
   />
   at a rate of
-  <strong class="datum">{formatNum(lastDay.processedApplicationsMovAvg14)}</strong>&nbsp;<Trend
+  <strong class="datum">{formatNum(lastDay.processedApplicationsMovAvg)}</strong>&nbsp;<Trend
     up={processedApplicationsUp}
     down={processedApplicationsDown}
     good="up"

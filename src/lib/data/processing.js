@@ -9,6 +9,8 @@ function localIsoDate(month, day) {
   return formatIsoDate(date);
 }
 
+export const movAvgDays = 28;
+
 export const processing = data
   .trim()
   .replace(/^\s*\w+, /gm, '')
@@ -51,18 +53,18 @@ export const processing = data
       currentValue.approvedApplications + currentValue.declinedApplications;
     const processedApplicationsCumulative =
       (previousValue.processedApplicationsCumulative || 0) + processedApplications;
-    const processedApplicationsMovAvg14 = (
+    const processedApplicationsMovAvg = (
       (processedApplications +
         acc
-          .slice(-13)
+          .slice(-movAvgDays + 1)
           .map((it) => it.processedApplications)
           .reduce((a, b) => a + b, 0)) /
-      14
+      movAvgDays
     ).toFixed(0);
     const remainingApplications = receivedApplicationsCumulative - processedApplicationsCumulative;
     const processedInDays =
-      processedApplicationsMovAvg14 > 0
-        ? Math.round(remainingApplications / processedApplicationsMovAvg14)
+      processedApplicationsMovAvg > 0
+        ? Math.round(remainingApplications / processedApplicationsMovAvg)
         : null;
     const processedBy = processedInDays === null ? null : new Date(currentValue.date);
     if (processedBy) {
@@ -77,7 +79,7 @@ export const processing = data
       declinedApplicationsCumulative,
       processedApplications,
       processedApplicationsCumulative,
-      processedApplicationsMovAvg14,
+      processedApplicationsMovAvg,
       remainingApplications,
       processedInDays,
       processedBy,

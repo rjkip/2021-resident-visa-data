@@ -2,6 +2,7 @@
   import { processing } from '$lib/data/processing';
   import Chart from 'svelte-frappe-charts';
   import { formatDateStringTooltipX } from './charts';
+  import { movAvgDays } from '../data/processing.js';
 
   const DAY_SAT = 6;
   const DAY_SUN = 0;
@@ -10,7 +11,7 @@
   );
 
   const processingRate = processingWeekdays.map((it) => it.processedApplications);
-  const movingAverage = processingWeekdays.map((it) => it.processedApplicationsMovAvg14);
+  const movingAverage = processingWeekdays.map((it) => it.processedApplicationsMovAvg);
 
   const chartData = {
     labels: processingWeekdays.map((row) => row.date),
@@ -20,7 +21,7 @@
         values: processingRate,
       },
       {
-        name: `14-day moving average`,
+        name: `${movAvgDays}-day moving average`,
         values: movingAverage,
       },
     ],
