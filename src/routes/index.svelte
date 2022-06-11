@@ -3,6 +3,7 @@
   import Charts from '$lib/Charts.svelte';
   import Intro from '$lib/Intro.svelte';
   import ProgressEstimationLink from '$lib/ProgressEstimationLink.svelte';
+  import DataSources from '../lib/DataSources.svelte';
 </script>
 
 <svelte:head>
@@ -51,15 +52,7 @@
 </ul>
 <hr />
 
-<p>
-  <strong>Data source:</strong>
-  📄
-  <a
-    href="https://www.immigration.govt.nz/documents/other-resources/2021-resident-visa-processing.pdf"
-  >
-    2021 Resident Visa processing updates (PDF)
-  </a>
-</p>
+<DataSources />
 <hr />
 
 <footer>

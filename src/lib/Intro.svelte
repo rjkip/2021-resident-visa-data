@@ -1,5 +1,6 @@
 <script>
   import LatestUpdate from '$lib/LatestUpdate.svelte';
+  import DataSources from './DataSources.svelte';
 </script>
 
 <p>
@@ -14,15 +15,7 @@
 <p>
   Immigration&rsquo;s latest update is from <strong><LatestUpdate /></strong>.
 </p>
-<p>
-  <strong>Data source:</strong>
-  📄
-  <a
-    href="https://www.immigration.govt.nz/documents/other-resources/2021-resident-visa-processing.pdf"
-  >
-    2021 Resident Visa processing updates (PDF)
-  </a>
-</p>
+<DataSources />
 
 <style>
   p {
