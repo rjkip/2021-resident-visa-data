@@ -1,5 +1,12 @@
 // INZ is no longer updating the detailed PDF 🤷
 export const data = `
+ ___, Jun 12    .   .    .    .    .
+ ___, Jun 11    .   .    .    .    .
+ ___, Jun 10    122 276  247  337  .
+ ___, Jun 9     119 276  243  333  .
+ ___, Jun 8     119 276  243  333  .
+ ___, Jun 7     119 276  243  333  .
+ ___, Jun 6     119 276  243  333  .
  ___, Jun 5     .   .    .    .    .
  ___, Jun 4     .   .    .    .    .
  ___, Jun 3     150 289  294  432  .
