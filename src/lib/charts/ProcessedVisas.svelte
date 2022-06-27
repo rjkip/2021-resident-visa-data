@@ -2,11 +2,11 @@
   import Chart from 'svelte-frappe-charts';
 
   const chartData = {
-    labels: ['Mar 2022', 'May 2022', 'Sept 2022'],
+    labels: ['Mar 2022', 'May 2022', 'Sept 2022', 'Oct 2022'],
     datasets: [
       {
         name: 'Resident visas processed by temporary visa expiry date',
-        values: [1, 1, 1],
+        values: [1, 1, 1, 1],
       },
     ],
   };
