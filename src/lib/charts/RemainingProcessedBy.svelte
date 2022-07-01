@@ -2,7 +2,7 @@
   import { processing } from '$lib/data/processing';
   import { formatLongDate, formatNum } from '../formatting';
   import Trend from '../Trend.svelte';
-  import { movAvgDays } from '../data/processing.js';
+  import { movAvgDays } from '../data/processing';
 
   const lastDay = processing[processing.length - 1];
   const fortnightAgo = processing[processing.length - 1 - movAvgDays];

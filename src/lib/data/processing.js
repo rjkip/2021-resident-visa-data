@@ -1,40 +1,68 @@
-// Copy-paste from https://www.immigration.govt.nz/documents/other-resources/2021-resident-visa-processing.pdf
-import { formatIsoDate } from '../formatting';
-import { data } from './processing-data.js';
+import { data } from './processing-data';
 
-function localIsoDate(month, day) {
-  // FIXME: Latent bug for December 2022
-  const date = new Date(`${month} ${day}, ${month === 'Dec' ? 2021 : 2022}`);
-
-  return formatIsoDate(date);
+function spreadProcessingToDayOffsetBy(offsetBy, processed) {
+  if (offsetBy === -2) {
+    // Fri
+    return Math.floor(processed / 5) + (processed % 5);
+  } else if (offsetBy < -2) {
+    // Mon-Fri
+    return Math.floor(processed / 5);
+  } else {
+    return 0;
+  }
 }
 
 export const movAvgDays = 28;
 
 export const processing = data
   .trim()
-  .replace(/^\s*\w+, /gm, '')
   .replace(/,/g, '')
   .replace(/\./g, '0')
   .split('\n')
-  .map((it) => it.trim().split(/\s+/))
+  // chunk [1,2,3,4] => [[1,2],[3,4]]
+  .flatMap((value, index, array) => (index % 6 === 0 ? [array.slice(index, index + 6)] : []))
   .map(
     ([
-      month,
-      day,
+      dateString,
       receivedApplications,
       receivedPeople,
       approvedApplications,
       approvedPeople,
       declinedApplications,
     ]) => ({
-      date: localIsoDate(month, day),
+      date: new Date(dateString),
       receivedApplications: parseInt(receivedApplications, 10),
       receivedPeople: parseInt(receivedPeople, 10),
       approvedApplications: parseInt(approvedApplications, 10),
       approvedPeople: parseInt(approvedPeople, 10),
       declinedApplications: parseInt(declinedApplications, 10),
     }),
+  )
+  // spread out processing over week days
+  .flatMap(
+    (
+      {
+        date,
+        receivedApplications,
+        receivedPeople,
+        approvedApplications,
+        approvedPeople,
+        declinedApplications,
+      },
+      index,
+      array,
+    ) =>
+      [0, -1, -2, -3, -4, -5, -6].map((dayOffset, index1, array1) => ({
+        date: ((date) => {
+          date.setDate(date.getDate() + dayOffset);
+          return date;
+        })(new Date(date)),
+        receivedApplications: spreadProcessingToDayOffsetBy(dayOffset, receivedApplications),
+        receivedPeople: spreadProcessingToDayOffsetBy(dayOffset, receivedPeople),
+        approvedApplications: spreadProcessingToDayOffsetBy(dayOffset, approvedApplications),
+        approvedPeople: spreadProcessingToDayOffsetBy(dayOffset, approvedPeople),
+        declinedApplications: spreadProcessingToDayOffsetBy(dayOffset, declinedApplications),
+      })),
   )
   .sort((a, b) => (a.date > b.date ? 1 : -1))
   .reduce((acc, currentValue, currentIndex, array) => {

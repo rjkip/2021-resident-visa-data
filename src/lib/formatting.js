@@ -17,11 +17,6 @@ const weekDayShortDateTimeFormat = new Intl.DateTimeFormat(locales, {
   year: 'numeric',
   timeZone: 'Pacific/Auckland',
 });
-const shortMonthFormat = new Intl.DateTimeFormat(locales, {
-  month: 'short',
-  year: '2-digit',
-  timeZone: 'Pacific/Auckland',
-});
 const shortDateTimeFormat = new Intl.DateTimeFormat(locales, {
   year: 'numeric',
   month: '2-digit',
@@ -44,35 +39,11 @@ export function formatLongWeekdayDate(date) {
 export function formatWeekdayShortDate(date) {
   return weekDayShortDateTimeFormat.format(date);
 }
-/** NZ timezone Jan 22 */
-export function formatShortMonth(date) {
-  return shortMonthFormat.format(date);
-}
 
-/** NZ timezone 2000-01-01 */
 export function formatIsoDate(date) {
   const parts = shortDateTimeFormat.formatToParts(date);
   const part = (type) => parts.filter((it) => it.type === type).map((it) => it.value)[0];
   return `${part('year')}-${part('month')}-${part('day')}`;
-}
-
-/** NZ timezone 2000-01 */
-export function formatIsoYearMonth(date) {
-  const parts = shortDateTimeFormat.formatToParts(date);
-  const part = (type) => parts.filter((it) => it.type === type).map((it) => it.value)[0];
-  return `${part('year')}-${part('month')}`;
-}
-
-/** NZ timezone 1/22 */
-const shortestMonthYearFormat = new Intl.DateTimeFormat(locales, {
-  year: '2-digit',
-  month: 'numeric',
-  timeZone: 'Pacific/Auckland',
-});
-export function formatShortestMonthYear(date) {
-  const parts = shortestMonthYearFormat.formatToParts(date);
-  const part = (type) => parts.filter((it) => it.type === type).map((it) => it.value)[0];
-  return `${part('month').replace(/^0/, '')}/${part('year')}`;
 }
 
 export function formatNum(num) {

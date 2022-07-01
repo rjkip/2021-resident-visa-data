@@ -2,7 +2,7 @@
   import { processing } from '$lib/data/processing';
   import Chart from 'svelte-frappe-charts';
   import { formatDateStringTooltipX } from './charts';
-  import { movAvgDays } from '../data/processing.js';
+  import { movAvgDays } from '../data/processing';
 
   const DAY_SAT = 6;
   const DAY_SUN = 0;

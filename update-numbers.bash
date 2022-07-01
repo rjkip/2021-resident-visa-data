@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# Requirements: pdftotext on the PATH (https://packages.ubuntu.com/focal/utils/poppler-utils)
-
 set -euo pipefail
 
 (
@@ -10,10 +8,9 @@ set -euo pipefail
 
   CLIENT='2021-resident-visa-netlify-app'
   CLIENT_URL='https://2021-resident-visa.netlify.app/'
-  curl -v 'https://www.immigration.govt.nz/documents/other-resources/2021-resident-visa-processing.pdf' \
-      -H "User-Agent: $CLIENT/1 ($CLIENT_URL)" \
-    | pdftotext -nopgbrk -layout - - \
-    | grep -P '\w+, \w+ \d+\s+[\d.,]+\s+[\d.,]+\s+[\d.,]+\s+[\d.,]+\s+[\d.,]+';
+  curl -v 'https://www.immigration.govt.nz/new-zealand-visas/waiting-for-a-visa/how-long-it-takes-to-process-your-visa-application/2021-resident-visa-processing-times' \
+      -H "User-Agent: $CLIENT/2 ($CLIENT_URL)" \
+    | grep -oP '(?<=^<p>)([\d,]+|\d+ \w+ \d{4})(?=</p>$)';
 
   echo '`;';
 ) > src/lib/data/processing-data.js;

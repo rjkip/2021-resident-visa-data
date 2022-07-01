@@ -13,7 +13,6 @@ jobs:
       - uses: actions/checkout@v3
       - name: Update processing numbers
         run: |
-          sudo apt install -y poppler-utils
           ./update-numbers.bash
       - name: Commit any changes
         run: |
@@ -25,11 +24,11 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
-          git add src/lib/data/processing-data.js
-
-          if git diff | grep -P '^\+' && git diff | grep -vP '^-'
+          if git diff --output-indicator-new=N --output-indicator-old=O -- src/lib/data/processing-data.js | grep -P '^N' \
+            && ! git diff --output-indicator-new=N --output-indicator-old=O -- src/lib/data/processing-data.js | grep -P '^O'
           then
-            git commit -m "New processing data ($(date +s'%a, %b %e %Y' | sed -r 's#\s+# #g'))"
+            git add src/lib/data/processing-data.js
+            git commit -m "New processing data ($(date +'%a, %b %e %Y' | sed -r 's#\s+# #g'))"
             git push
           else
             echo 'Nothing to commit, or there are deletions'
