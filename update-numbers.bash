@@ -10,7 +10,7 @@ set -euo pipefail
   CLIENT_URL='https://2021-resident-visa.netlify.app/'
   curl -v 'https://www.immigration.govt.nz/new-zealand-visas/waiting-for-a-visa/how-long-it-takes-to-process-your-visa-application/2021-resident-visa-processing-times' \
       -H "User-Agent: $CLIENT/2 ($CLIENT_URL)" \
-    | grep -oP '(?<=^<p>)([\d,]+|\d+ \w+ \d{4})(?=</p>$)';
+    | grep -oP '(?<=^<p>)([\d,]+|\d+ \w+ \d{4})(?=</p>$)|(?<=^<td width="113">)([\d,]+|\d+ \w+ \d{4})(?=</td>$)';
 
   echo '`;';
 ) > src/lib/data/processing-data.js;
