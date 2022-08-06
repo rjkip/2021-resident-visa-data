@@ -15,8 +15,8 @@
     <thead>
       <tr>
         <th>Date</th>
-        <th>Total applications received</th>
-        <th>Total number of people included</th>
+        <th>Applications received</th>
+        <th>Number of people included</th>
         <th>Applications approved and visas issued</th>
         <th>People approved and issued visas</th>
         <th>Applications declined (Failed criteria)</th>

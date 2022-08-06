@@ -1,0 +1,39 @@
+name: Update processing numbers
+
+on:
+  workflow_dispatch: ~
+  schedule:
+    - cron: '23 * * * 4-6' # Every hour on the 23rd minute, Thu-Sat
+
+jobs:
+  update_numbers:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Update processing numbers
+        run: |
+          npm run update-numbers
+      - name: Commit any changes
+        run: |
+          set -euo pipefail
+
+          git status
+          git diff
+
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+          DIFF_FILE="src/lib/data/processing-weekly-2-totals-data.js"
+          if git diff --output-indicator-new=N --output-indicator-old=O -- "$DIFF_FILE" | grep -P '^N' \
+            && ! git diff --output-indicator-new=N --output-indicator-old=O -- "$DIFF_FILE" | grep -P '^O'
+          then
+            git add "$DIFF_FILE"
+            git commit -m "New processing data ($(date +'%a, %b %e %Y' | sed -r 's#\s+# #g'))"
+            git push
+          else
+            echo 'Nothing to commit, or there are deletions'
+          fi

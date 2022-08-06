@@ -40,6 +40,7 @@ export function formatWeekdayShortDate(date) {
   return weekDayShortDateTimeFormat.format(date);
 }
 
+/** NZ timezone 2022-12-31 */
 export function formatIsoDate(date) {
   const parts = shortDateTimeFormat.formatToParts(date);
   const part = (type) => parts.filter((it) => it.type === type).map((it) => it.value)[0];

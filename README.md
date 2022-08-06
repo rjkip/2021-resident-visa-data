@@ -5,9 +5,7 @@
 The 2021 Resident Visa processing times data is updated automatically from
 [Immigration New Zealand’s numbers](https://www.immigration.govt.nz/new-zealand-visas/waiting-for-a-visa/how-long-it-takes-to-process-your-visa-application/2021-resident-visa-processing-times).
 
-To pull in the latest updates, run `./update-numbers.bash`, or copy the missing
-rows from the HTML table to the top of the template string in
-[`src/lib/data/processing-data.js`](src/lib/data/processing-data.js).
+To pull in the latest updates, run `npm run update-numbers`.
 
 Confirm the data is interpreted properly by running the application and
 inspecting its output.
