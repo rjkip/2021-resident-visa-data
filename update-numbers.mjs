@@ -37,7 +37,7 @@ const date = new Date(dateString);
 const newWeeklyData = {
   ...data,
   [formatIsoDate(date)]: {
-    date: date.toISOString(),
+    date: formatIsoDate(date),
     receivedApplicationsCumulative,
     receivedPeopleCumulative,
     approvedApplicationsCumulative,
