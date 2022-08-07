@@ -16,6 +16,7 @@ jobs:
           node-version: 16
       - name: Update processing numbers
         run: |
+          npm install zx@^7.0.8
           npm run update-numbers
       - name: Commit any changes
         run: |

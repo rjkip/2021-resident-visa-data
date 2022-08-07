@@ -10,7 +10,7 @@
     "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. .",
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
     "jest": "NODE_OPTIONS=--experimental-vm-modules jest",
-    "update-numbers": "npx -y -- zx update-numbers.mjs"
+    "update-numbers": "npx -- zx update-numbers.mjs"
   },
   "devDependencies": {
     "@observablehq/plot": "^0.5.2",
