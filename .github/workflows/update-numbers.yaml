@@ -22,8 +22,10 @@ jobs:
         run: |
           set -euo pipefail
 
-          git status
-          git diff
+          echo 'Git status'
+          git status | sed -r 's#^#    #'
+          echo 'Git diff'
+          git diff | sed -r 's#^#    #'
 
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
