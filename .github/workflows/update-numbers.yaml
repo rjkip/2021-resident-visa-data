@@ -18,17 +18,17 @@ jobs:
         run: |
           npm install zx@^7.0.8
           npm run update-numbers
+      - name: Git config
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+      - name: Git status
+        run: git status
+      - name: Git diff
+        run: git diff
       - name: Commit any changes
         run: |
           set -euo pipefail
-
-          echo 'Git status'
-          git status | sed -r 's#^#    #'
-          echo 'Git diff'
-          git diff | sed -r 's#^#    #'
-
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
 
           DIFF_FILE="src/lib/data/processing-weekly-2-totals-data.js"
           if git diff --output-indicator-new=N --output-indicator-old=O -- "$DIFF_FILE" | grep -P '^N' \
