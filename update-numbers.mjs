@@ -10,7 +10,7 @@ const url = `https://www.immigration.govt.nz/new-zealand-visas/waiting-for-a-vis
 const html = (await $`curl -v ${url} -H ${USER_AGENT_HEADER}`).stdout;
 
 const matches = html.match(
-  /(?<=<td>)[\d,]+|(?<=Data valid to approximately )\d+:\d+, [a-zA-Z\d\s]+/g,
+  /(?<=<td>)[\d,]+|(?<=Data valid to approximately )\d+:\d+,\s[a-zA-Z\d\s]+/g,
 );
 const [
   receivedApplicationsCumulativeString,
@@ -31,7 +31,7 @@ const approvedPeopleCumulative = parseInt(approvedPeopleCumulativeString.replace
 const declinedApplicationsCumulative = parseInt(
   declinedApplicationsCumulativeString.replace(',', ''),
 );
-const dateString = validAtString.replace(/^\d+:\d+, /, '');
+const dateString = validAtString.replace(/\s/g, ' ').replace(/^\d+:\d+, /, '');
 const date = new Date(dateString);
 
 const newWeeklyData = {
