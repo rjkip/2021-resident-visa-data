@@ -23,6 +23,7 @@ Timestamp\tHas Immigration New Zealand approved or declined your 2021 Resident V
 6/28/2022 9:21:31\tYes\t6/17/2022\t10/21/2022\tSkilled\t3/3/2022
 7/4/2022 22:23:57\tYes\t6/17/2022\t10/21/2022\tSettled\t1/2/2022
 7/19/2022 14:42:34\tYes\t7/19/2022\t3/8/2024\tSettled\t5/12/2022
+10/10/2022 17:38:38\tYes\t10/10/2022\t6/19/2025\tSkilled
 `
     .trim()
     .split('\n')
