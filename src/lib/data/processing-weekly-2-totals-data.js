@@ -94,5 +94,13 @@ export const data = {
     "approvedApplicationsCumulative": 63144,
     "approvedPeopleCumulative": 115382,
     "declinedApplicationsCumulative": 189
+  },
+  "2022-11-15": {
+    "date": "2022-11-15",
+    "receivedApplicationsCumulative": 106080,
+    "receivedPeopleCumulative": 214346,
+    "approvedApplicationsCumulative": 64645,
+    "approvedPeopleCumulative": 117619,
+    "declinedApplicationsCumulative": 196
   }
 };
