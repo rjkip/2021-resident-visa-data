@@ -51,4 +51,7 @@
   .datum {
     white-space: nowrap;
   }
+  p {
+    max-width: 45em;
+  }
 </style>
