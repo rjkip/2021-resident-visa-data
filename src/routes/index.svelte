@@ -2,7 +2,6 @@
   import ProcessingTable from '$lib/ProcessingTable.svelte';
   import Charts from '$lib/Charts.svelte';
   import Intro from '$lib/Intro.svelte';
-  import ProgressEstimationLink from '$lib/ProgressEstimationLink.svelte';
   import DataSources from '../lib/DataSources.svelte';
 </script>
 
@@ -23,10 +22,6 @@
   <div class="intro">
     <h1>🇳🇿 2021 New Zealand Resident Visa data</h1>
     <Intro />
-  </div>
-  <div class="progress-estimation">
-    <h2>⏩ Progress estimation</h2>
-    <ProgressEstimationLink />
   </div>
 </div>
 <hr />
