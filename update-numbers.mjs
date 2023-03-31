@@ -10,7 +10,7 @@ const url = `https://www.immigration.govt.nz/new-zealand-visas/waiting-for-a-vis
 const html = (await $`curl -v ${url} -H ${USER_AGENT_HEADER}`).stdout;
 
 const matches = html.match(
-  /(?<=<td[^>]*?>)[\d,]+|(?<=Data valid to approximately )\d+:\d+,\s[a-zA-Z\d\s]+/g,
+  /(?<=<td[^>]*?>)[\d,]+|(?<=Data valid (?:to|as of) approximately )\d+:\d+,\s[a-zA-Z\d\s]+/g,
 );
 const [
   receivedApplicationsCumulativeString,
@@ -20,6 +20,18 @@ const [
   declinedApplicationsCumulativeString,
   validAtString,
 ] = matches;
+if (matches.length < 6) {
+  console.error(`Not enough matches (${matches.length} instead of at least 6) in HTML`);
+  console.error({
+    receivedApplicationsCumulativeString,
+    receivedPeopleCumulativeString,
+    approvedApplicationsCumulativeString,
+    approvedPeopleCumulativeString,
+    declinedApplicationsCumulativeString,
+    validAtString,
+  });
+  throw new Error(`Not enough matches (${matches.length} instead of at least 6) in HTML`);
+}
 const receivedApplicationsCumulative = parseInt(
   receivedApplicationsCumulativeString.replace(',', ''),
 );
