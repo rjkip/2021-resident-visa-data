@@ -57,7 +57,11 @@
     >
   </p>
   <p>
-    Created by 💼&nbsp;<a href="https://www.linkedin.com/in/rjkip/">in/rjkip</a>
+    Created by 🌏&nbsp;<a
+      href="https://reinier.nz/?utm_source=2021-resident-visa.netlify.app&utm_content=footer"
+      >reinier.nz</a
+    >
+    💼&nbsp;<a href="https://www.linkedin.com/in/rjkip/">in/rjkip</a>
   </p>
 </footer>
 
