@@ -326,5 +326,13 @@ export const data = {
     "approvedApplicationsCumulative": 102549,
     "approvedPeopleCumulative": 209026,
     "declinedApplicationsCumulative": 544
+  },
+  "2023-10-21": {
+    "date": "2023-10-21",
+    "receivedApplicationsCumulative": 106418,
+    "receivedPeopleCumulative": 217626,
+    "approvedApplicationsCumulative": 102603,
+    "approvedPeopleCumulative": 209174,
+    "declinedApplicationsCumulative": 553
   }
 };
