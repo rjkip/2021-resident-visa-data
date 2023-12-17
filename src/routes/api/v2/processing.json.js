@@ -6,9 +6,9 @@ export async function get(request) {
   return {
     body: {
       source:
-        'https://www.immigration.govt.nz/new-zealand-visas/waiting-for-a-visa/how-long-it-takes-to-process-your-visa-application/2021-resident-visa-processing-times',
+        'https://www.immigration.govt.nz/new-zealand-visas/waiting-for-a-visa/visa-processing-updates/2021-resident-visa-processing-updates',
       sources: [
-        'https://www.immigration.govt.nz/new-zealand-visas/waiting-for-a-visa/how-long-it-takes-to-process-your-visa-application/2021-resident-visa-processing-times',
+        'https://www.immigration.govt.nz/new-zealand-visas/waiting-for-a-visa/visa-processing-updates/2021-resident-visa-processing-updates',
       ],
       data: processing.map((row) => ({
         ...row,

@@ -6,7 +6,7 @@ const CLIENT = '2021-resident-visa-netlify-app';
 const CLIENT_URL = 'https://2021-resident-visa.netlify.app/';
 const USER_AGENT_HEADER = `User-Agent: ${CLIENT}/3 (${CLIENT_URL})`;
 
-const url = `https://www.immigration.govt.nz/new-zealand-visas/waiting-for-a-visa/how-long-it-takes-to-process-your-visa-application/2021-resident-visa-processing-times`;
+const url = `https://www.immigration.govt.nz/new-zealand-visas/waiting-for-a-visa/visa-processing-updates/2021-resident-visa-processing-updates`;
 const html = (await $`curl -v ${url} -H ${USER_AGENT_HEADER}`).stdout;
 
 const matches = html.match(
